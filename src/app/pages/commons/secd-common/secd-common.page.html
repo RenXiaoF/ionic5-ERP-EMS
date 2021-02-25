@@ -1,0 +1,56 @@
+<ion-header [translucent]="true" style="background-color: #3880FF;">
+  <ion-toolbar>
+
+    <ion-button clot="start" (click)="secdAlertPropat('003','路易威登')">新建下级</ion-button>
+
+    <ion-title>{{secComFirstTitle}}</ion-title>
+
+    <ion-button slot="end" (click)="gotoSuperior()">
+      返回上级
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Animated Searchbar 搜索框 -->
+  <!-- <ion-searchbar animated></ion-searchbar> -->
+
+
+  <!-- 内容 -->
+  <div *ngFor="let scl of secdColorList">
+    <div *ngFor="let item of scl.children; let i = index">
+
+      <ion-card *ngIf="item.is_deleted == false">
+
+        <ion-item>
+          <!-- <ion-label>编号：{{item.NO}}</ion-label> -->
+          <ion-label>名称：{{item.name}}</ion-label>
+        </ion-item>
+        <!-- <ion-item>
+          <ion-label> 分组： {{ item.group }} </ion-label>
+        </ion-item> -->
+
+        <div class="buttons">
+          <ion-checkbox class="checkbox" (click)="onChecked(i)"></ion-checkbox>
+          <div class="bbutton">
+            <ion-button (click)="onChecked(i) ; 
+            colorDetail(item.NO,item.name,item.group,item.isChecked,item.is_deleted)">
+              查看下级
+            </ion-button>
+            <ion-button (click)=" onChecked(i) ; colorDelete()">删除</ion-button>
+            <ion-button (click)="onChecked(i) ; getColorById(i) ; presentModal() ">编辑</ion-button>
+
+          </div>
+
+        </div>
+
+      </ion-card>
+
+    </div>
+
+
+  </div>
+
+</ion-content>

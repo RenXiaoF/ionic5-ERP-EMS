@@ -1,0 +1,55 @@
+<!-- 头部 -->
+<ion-header [translucent]="true" style="background-color: #3880FF;">
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-button slot="end" (click)="presentAlertPrompt('新建下级')">
+      新建下级
+    </ion-button>
+
+    <ion-title>{{ title }}</ion-title>
+
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!-- 颜色 -->
+  <div *ngFor="let coml of commons_list">
+
+    <div *ngFor="let cc of coml.children; let i = index">
+
+      <ion-card *ngIf="cc.is_deleted == false">
+
+        <ion-item>
+          <ion-label>{{cc.name}}</ion-label>
+
+          <!-- <div *ngFor="let ccc of cc.children">
+        <ion-button (click)="onChecked(i) ; onSubordinate(cc.name,ccc.NO,ccc.name,ccc.group,ccc.isChecked,ccc.is_deleted)"> -->
+          <div>
+            <ion-button (click)="onChecked(i) ; onSubordinate()">
+              下级
+            </ion-button>
+
+            <ion-button (click)="onChecked(i) ; onDeleted()">删除</ion-button>
+            <ion-button (click)="onChecked(i) ; presentModal(cc.name)">编辑</ion-button>
+          </div>
+
+        </ion-item>
+
+
+      </ion-card>
+
+
+
+    </div>
+
+  </div>
+
+</ion-content>

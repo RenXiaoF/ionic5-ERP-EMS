@@ -1,0 +1,40 @@
+<!-- 头部 -->
+<ion-header [translucent]="true" style="background-color: #3880FF;">
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>test-datetime</ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-label>开始时间</ion-label>
+      <ion-datetime name="sqsj" displayFormat="YYYY/MM/DD HH:mm" [(ngModel)]="startDate.sqsj" cancelText="取消" doneText="确认">
+      </ion-datetime>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>结束时间</ion-label>
+      <ion-datetime name="sqsj" displayFormat="YYYY/MM/DD HH:mm" [(ngModel)]="endDate.sqsj" cancelText="取消" doneText="确认">
+      </ion-datetime>
+    </ion-item>
+
+    <ion-button class="buttont" (click)="onAlert() ; onSpaceTimeSearch(startDate,startDate)" >确定</ion-button>
+
+  </ion-card>
+
+ 
+
+
+</ion-content>

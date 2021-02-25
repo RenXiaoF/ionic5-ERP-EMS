@@ -1,0 +1,45 @@
+<!-- 头部 -->
+<ion-header [translucent]="true" style="background-color: #3880FF;">
+
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-button slot="end" (click)="presentAlertPrompt('其他')">
+      创建下级
+    </ion-button>
+
+    <ion-title>{{ title }}</ion-title>
+
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!-- 颜色 -->
+  <div *ngFor="let stl of stylesList">
+
+    <div *ngFor="let tName of stl.children; let i = index">
+
+      <ion-card *ngIf="tName.is_deleted == false">
+
+        <ion-item>
+          <ion-label>{{tName.name}}</ion-label>
+          <div>
+            <ion-button (click)="onSubordinate()">下级</ion-button>
+            <ion-button (click)="onChecked(i) ; onDeleted()">删除</ion-button>
+            <ion-button (click)="onChecked(i) ; presentModal(tName.name)">编辑</ion-button>
+          </div>
+        </ion-item>
+
+      </ion-card>
+
+    </div>
+
+  </div>
+
+</ion-content>

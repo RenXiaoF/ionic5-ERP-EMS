@@ -1,0 +1,30 @@
+<ion-header color="primary">
+
+  <ion-toolbar>
+    <ion-title>{{ colors }}</ion-title>
+    <ion-button slot="end" (click)="dismiss()">关闭</ion-button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-item>
+      <ion-input type="text" value="{{ NO }}">编号：</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" value="{{ name }}">名称：</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" value="{{ group }}">分组：</ion-input>
+    </ion-item>
+  </ion-card>
+
+
+  <div class="bbutton">
+    <ion-button (click)="onEnsure('004','皓月白','白色')">确定</ion-button>
+    <ion-button (click)="dismiss()">取消</ion-button>
+  </div>
+
+</ion-content>

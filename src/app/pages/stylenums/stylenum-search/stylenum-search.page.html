@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" style="background-color: rgb(110, 116, 122);">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>款号搜索</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Animated Searchbar 搜索框 -->
+  <ion-searchbar animated [(ngModel)]="searchQuery" (input)="getItems($event)"></ion-searchbar>
+
+
+  <div id="container" *ngFor="let item  of items; let i = index">
+
+    <ion-card class="funtst">
+
+      <ion-item>
+        <ion-label> 编号： {{ item .NO }} </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> 名称： {{ item .name }} </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label> 分组：{{ item .group }}</ion-label>
+      </ion-item>
+
+      <div class="buttons">
+
+        <!-- <ion-checkbox checked="cl.isChecked" class="checkbox" (click)="onChecked(i)"></ion-checkbox> -->
+        <ion-checkbox class="checkbox" (click)="onChecked(i)"></ion-checkbox>
+
+        <div class="bbutton">
+          <!-- <ion-button (click)="onChecked(i)">删除</ion-button> -->
+          <ion-button (click)=" getColorById(i) ; presentModal() ">编辑</ion-button>
+        </div>
+
+
+      </div>
+
+    </ion-card>
+
+  </div>
+
+</ion-content>
